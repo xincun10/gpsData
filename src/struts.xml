@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 设置上传文件的大小(单位是字节) -->
+	<!-- <constant name="struts.multipart.maxSize" value="2097152"></constant> -->
+	<package name="demo1" extends="struts-default" namespace="/">
+		<action name="test_*" class="testAction" method="{1}">
+			<result name="login">/login.jsp</result>
+			<!-- 某一省份信息 -->
+			<result name="findProvince">/success1.jsp</result>
+			<!-- 所有省份汇总信息 -->
+			<result name="provinceCount">/success2.jsp</result>
+			<!-- 某一省份所有城市汇总 -->
+			<result name="cityCount">/success3.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>
+
+
+
