@@ -8,4 +8,6 @@ public interface TestDao {
 
 	List<Vehicle> findProvince(String province);
 
+	List<Vehicle> findWithState(String string, String vehicleState);
+
 }

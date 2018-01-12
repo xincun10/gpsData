@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root name="中国">
-	<province name="北京市" postcode="110000">
-		<city name="市辖区" postcode="110100">
+	<province name="北京" postcode="110000">
+		<city name="北京市" postcode="110100">
 			<area name="东城区" postcode="110101" />
 			<area name="西城区" postcode="110102" />
 			<area name="崇文区" postcode="110103" />
@@ -18,14 +18,12 @@
 			<area name="大兴区" postcode="110115" />
 			<area name="怀柔区" postcode="110116" />
 			<area name="平谷区" postcode="110117" />
-		</city>
-		<city name="县" postcode="110200">
 			<area name="密云县" postcode="110228" />
 			<area name="延庆县" postcode="110229" />
 		</city>
 	</province>
-	<province name="天津市" postcode="120000">
-		<city name="市辖区" postcode="120100">
+	<province name="天津" postcode="120000">
+		<city name="天津市" postcode="120100">
 			<area name="和平区" postcode="120101" />
 			<area name="河东区" postcode="120102" />
 			<area name="河西区" postcode="120103" />
@@ -41,15 +39,13 @@
 			<area name="北辰区" postcode="120113" />
 			<area name="武清区" postcode="120114" />
 			<area name="宝坻区" postcode="120115" />
-		</city>
-		<city name="县" postcode="120200">
 			<area name="宁河县" postcode="120221" />
 			<area name="静海县" postcode="120223" />
 			<area name="蓟县" postcode="120225" />
 		</city>
 	</province>
 
-	<province name="河北省" postcode="130000">
+	<province name="河北" postcode="130000">
 		<city name="石家庄市" postcode="130100">
 			<area name="长安区" postcode="130102" />
 			<area name="桥东区" postcode="130103" />
@@ -246,7 +242,7 @@
 		</city>
 	</province>
 
-	<province name="山西省" postcode="140000">
+	<province name="山西" postcode="140000">
 		<city name="太原市" postcode="140100">
 			<area name="小店区" postcode="140105" />
 			<area name="迎泽区" postcode="140106" />
@@ -518,7 +514,7 @@
 		</city>
 	</province>
 
-	<province name="辽宁省" postcode="210000">
+	<province name="辽宁" postcode="210000">
 		<city name="沈阳市" postcode="210100">
 			<area name="和平区" postcode="210102" />
 			<area name="沈河区" postcode="210103" />
@@ -649,7 +645,7 @@
 		</city>
 	</province>
 
-	<province name="吉林省" postcode="220000">
+	<province name="吉林" postcode="220000">
 		<city name="长春市" postcode="220100">
 			<area name="南关区" postcode="220102" />
 			<area name="宽城区" postcode="220103" />
@@ -730,7 +726,7 @@
 		</city>
 	</province>
 
-	<province name="黑龙江省" postcode="230000">
+	<province name="黑龙江" postcode="230000">
 		<city name="哈尔滨市" postcode="230100">
 			<area name="道里区" postcode="230102" />
 			<area name="南岗区" postcode="230103" />
@@ -917,7 +913,7 @@
 		</city>
 	</province>
 
-	<province name="江苏省" postcode="320000">
+	<province name="江苏" postcode="320000">
 		<city name="南京市" postcode="320100">
 			<area name="玄武区" postcode="320102" />
 			<area name="白下区" postcode="320103" />
@@ -1052,7 +1048,7 @@
 		</city>
 	</province>
 
-	<province name="浙江省" postcode="330000">
+	<province name="浙江" postcode="330000">
 		<city name="杭州市" postcode="330100">
 			<area name="上城区" postcode="330102" />
 			<area name="下城区" postcode="330103" />
@@ -1167,7 +1163,7 @@
 		</city>
 	</province>
 
-	<province name="安徽省" postcode="340000">
+	<province name="安徽" postcode="340000">
 		<city name="合肥市" postcode="340100">
 			<area name="瑶海区" postcode="340102" />
 			<area name="庐阳区" postcode="340103" />
@@ -1309,7 +1305,7 @@
 		</city>
 	</province>
 
-	<province name="福建省" postcode="350000">
+	<province name="福建" postcode="350000">
 		<city name="福州市" postcode="350100">
 			<area name="鼓楼区" postcode="350102" />
 			<area name="台江区" postcode="350103" />
@@ -1415,7 +1411,7 @@
 		</city>
 	</province>
 
-	<province name="江西省" postcode="360000">
+	<province name="江西" postcode="360000">
 		<city name="南昌市" postcode="360100">
 			<area name="东湖区" postcode="360102" />
 			<area name="西湖区" postcode="360103" />
@@ -1539,7 +1535,7 @@
 		</city>
 	</province>
 
-	<province name="山东省" postcode="370000">
+	<province name="山东" postcode="370000">
 		<city name="济南市" postcode="370100">
 			<area name="历下区" postcode="370102" />
 			<area name="市中区" postcode="370103" />
@@ -1716,7 +1712,7 @@
 		</city>
 	</province>
 
-	<province name="河南省" postcode="410000">
+	<province name="河南" postcode="410000">
 		<city name="郑州市" postcode="410100">
 			<area name="中原区" postcode="410102" />
 			<area name="二七区" postcode="410103" />
@@ -1912,7 +1908,7 @@
 		</city>
 	</province>
 
-	<province name="湖北省" postcode="420000">
+	<province name="湖北" postcode="420000">
 		<city name="武汉市" postcode="420100">
 			<area name="江岸区" postcode="420102" />
 			<area name="江汉区" postcode="420103" />
@@ -2045,7 +2041,7 @@
 		</city>
 	</province>
 
-	<province name="湖南省" postcode="430000">
+	<province name="湖南" postcode="430000">
 		<city name="长沙市" postcode="430100">
 			<area name="芙蓉区" postcode="430102" />
 			<area name="天心区" postcode="430103" />
@@ -2198,7 +2194,7 @@
 		</city>
 	</province>
 
-	<province name="广东省" postcode="440000">
+	<province name="广东" postcode="440000">
 		<city name="广州市" postcode="440100">
 			<area name="荔湾区" postcode="440103" />
 			<area name="越秀区" postcode="440104" />
@@ -2506,7 +2502,7 @@
 		</city>
 	</province>
 
-	<province name="海南省" postcode="460000">
+	<province name="海南" postcode="460000">
 		<city name="海口市" postcode="460100">
 			<area name="秀英区" postcode="460105" />
 			<area name="龙华区" postcode="460106" />
@@ -2539,8 +2535,8 @@
 		</city>
 	</province>
 
-	<province name="重庆市" postcode="500000">
-		<city name="市辖区" postcode="500100">
+	<province name="重庆" postcode="500000">
+		<city name="重庆市" postcode="500100">
 			<area name="万州区" postcode="500101" />
 			<area name="涪陵区" postcode="500102" />
 			<area name="渝中区" postcode="500103" />
@@ -2560,8 +2556,6 @@
 			<area name="合川区" postcode="500117" />
 			<area name="永川区" postcode="500118" />
 			<area name="南川区" postcode="500119" />
-		</city>
-		<city name="县" postcode="500200">
 			<area name="綦江县" postcode="500222" />
 			<area name="潼南县" postcode="500223" />
 			<area name="铜梁县" postcode="500224" />
@@ -2586,7 +2580,7 @@
 		</city>
 	</province>
 
-	<province name="四川省" postcode="510000">
+	<province name="四川" postcode="510000">
 		<city name="成都市" postcode="510100">
 			<area name="锦江区" postcode="510104" />
 			<area name="青羊区" postcode="510105" />
@@ -2812,7 +2806,7 @@
 		</city>
 	</province>
 
-	<province name="贵州省" postcode="520000">
+	<province name="贵州" postcode="520000">
 		<city name="贵阳市" postcode="520100">
 			<area name="南明区" postcode="520102" />
 			<area name="云岩区" postcode="520103" />
@@ -2921,7 +2915,7 @@
 		</city>
 	</province>
 
-	<province name="云南省" postcode="530000">
+	<province name="云南" postcode="530000">
 		<city name="昆明市" postcode="530100">
 			<area name="五华区" postcode="530102" />
 			<area name="盘龙区" postcode="530103" />
@@ -3175,7 +3169,7 @@
 		</city>
 	</province>
 
-	<province name="陕西省" postcode="610000">
+	<province name="陕西" postcode="610000">
 		<city name="西安市" postcode="610100">
 			<area name="新城区" postcode="610102" />
 			<area name="碑林区" postcode="610103" />
@@ -3305,7 +3299,7 @@
 		</city>
 	</province>
 
-	<province name="甘肃省" postcode="620000">
+	<province name="甘肃" postcode="620000">
 		<city name="兰州市" postcode="620100">
 			<area name="城关区" postcode="620102" />
 			<area name="七里河区" postcode="620103" />
@@ -3422,7 +3416,7 @@
 		</city>
 	</province>
 
-	<province name="青海省" postcode="630000">
+	<province name="青海" postcode="630000">
 		<city name="西宁市" postcode="630100">
 			<area name="城东区" postcode="630102" />
 			<area name="城中区" postcode="630103" />

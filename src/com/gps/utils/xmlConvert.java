@@ -92,10 +92,63 @@ public class xmlConvert {
     	
     }
     
+    //获取市下面三级节点area的name值
+    public static Map<String, Map<String, ArrayList<String>>> getArea(String path)
+    {
+    	//存放区级信息
+    	Map<String, Map<String, ArrayList<String>>> mapArea = new HashMap<String, Map<String, ArrayList<String>>>();
+    	//创建SAXReader对象  
+        SAXReader reader = new SAXReader();  
+        //读取文件 转换成Document  
+        Document document = null;
+        
+        try {
+			document = reader.read(new File(path));
+			//获取根节点元素对象  
+	        Element root = document.getRootElement();
+	        
+	        //获取根结点为root下，一级节点为province的元素集合
+	        List<Element> listPro = root.elements("province");
+	        for(int i=0; i<listPro.size(); i++)
+	        {
+	        	//存放市级信息
+	        	Map<String, ArrayList<String>> mapCity = new HashMap<String, ArrayList<String>>();
+	        	Element province = listPro.get(i);
+	        	String namePro = province.attributeValue("name");
+	        	//获取根结点为root下，一级节点为province下，二级节点为city的元素集合
+		        List<Element> listCity = province.elements("city");
+		        		        
+		        for(int j=0; j<listCity.size(); j++)
+		        {
+		        	Element city = listCity.get(j);
+		        	String nameCity = city.attributeValue("name");
+		        	//获取三级节点为area的元素集合
+		        	List<Element> listArea = city.elements();
+		        	//将name值存在数组里面
+			        ArrayList<String> areas = new ArrayList<String>();
+		        	for(int k=0; k<listArea.size(); k++)
+		        	{
+		        		Element area = listArea.get(k);
+		        		String nameArea = area.attributeValue("name");
+		        		areas.add(nameArea);
+		        	}
+		        	mapCity.put(nameCity, areas);
+		        }
+	        	mapArea.put(namePro, mapCity);
+	        }
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+    	
+    	return mapArea;
+    	
+    }
+    
     @Test
     public void testXml()
     {
-    	Map al = getCity("src/com/gps/utils/region.xml");
+    	Map al = getArea("src/com/gps/utils/region.xml");
     	System.out.println(al);
     }
 }

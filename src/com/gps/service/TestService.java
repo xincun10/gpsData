@@ -18,4 +18,8 @@ public class TestService {
 		// TODO Auto-generated method stub
 		return testDao.findProvince(province);
 	}
+	public List<Vehicle> findWithState(String string, String vehicleState) {
+		// TODO Auto-generated method stub
+		return testDao.findWithState(string, vehicleState);
+	}
 }

@@ -6,6 +6,6 @@
 测试页面
 </HEAD>
 <BODY>
-${provinceCount}
+${baiduPath }
 </BODY>
 </HTML>

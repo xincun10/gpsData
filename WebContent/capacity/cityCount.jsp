@@ -6,6 +6,6 @@
 测试页面
 </HEAD>
 <BODY>
-${cityCount}
+${cityCount }
 </BODY>
 </HTML>
