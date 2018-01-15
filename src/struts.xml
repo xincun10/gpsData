@@ -3,25 +3,38 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+
 	<!-- 设置上传文件的大小(单位是字节) -->
 	<!-- <constant name="struts.multipart.maxSize" value="2097152"></constant> -->
 	<package name="demo1" extends="struts-default" namespace="/">
 		<action name="test_*" class="testAction" method="{1}">
 		</action>
 		
+	</package>
+	
+	<package name="default" extends="json-default" namespace="/">
+	
 		<!-- 运力分析 -->
 		<action name="capacity_*" class="capacityAction" method="{1}">
+			<interceptor-ref name="json"/>
 			<!-- 所有省份信息 -->
-			<result name="provinceCount">/capacity/provinceCount.jsp</result>
+			<result name="provinceCount" type="json">
+				<param name="root">returnProvince</param>
+			</result>
 			<!-- 某一省份具体信息 -->
-			<result name="cityCount">/capacity/cityCount.jsp</result>
+			<result name="cityCount" type="json">
+				<param name="root">returnCity</param>
+			</result>
 		</action>
 		
 		<!-- 百度地图路径 -->
 		<action name="baiduAPI_*" class="baiduAPIAction" method="{1}">
 			<!-- 得到所有的经纬度 -->
-			<result name="getPath">/baidupath/result.jsp</result>
+			<result name="getPath" type="json">
+				<param name="root">returnGPS</param>
+			</result>
 		</action>
+	
 	</package>
 
 </struts>

@@ -46,22 +46,49 @@ public class BaiduAPIAction extends ActionSupport implements ModelDriven<Vehicle
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-
+	
+	private String returnGPS;
+	public String getReturnGPS() {
+		return returnGPS;
+	}
+	public void setReturnGPS(String returnGPS) {
+		this.returnGPS = returnGPS;
+	}
 	//获取行驶记录
 	public String getPath()
 	{
-		String gpsCode = vehicleGps.getGpsCode();
+		String gpsf = ServletActionContext.getRequest().getParameter("gpsf");
+		net.sf.json.JSONObject jsonOne = net.sf.json.JSONObject.fromObject(gpsf);
+		String gpsCode = jsonOne.getString("gpsCode");
+		startTime = jsonOne.getString("startTime");
+		endTime = jsonOne.getString("endTime");
+		
+//		String gpsCode = vehicleGps.getGpsCode();
+//		System.out.println(gpsCode);
+//		System.out.println(startTime);
 		List<VehicleGps> list = baiduAPIService.findPath(gpsCode, startTime, endTime);
 		//结果存放在JSONArray数组里面
 		JSONArray json = new JSONArray();
+		String lngTmp = "";
+		String latTmp = "";
 		for(VehicleGps gps:list)
 		{
+			//避免连续加入相同的数据
+			if((lngTmp.equals(gps.getGpsLng()+"")) && (latTmp.equals(gps.getGpsLat()+"")))
+			{
+				continue;
+			}
+				
+			lngTmp = gps.getGpsLng()+"";
+			latTmp = gps.getGpsLat()+"";
 			JSONObject jo = new JSONObject();
-			jo.put("lng", gps.getGpsLng()+"");
-			jo.put("lat", gps.getGpsLat()+"");
+			jo.put("lng", lngTmp);
+			jo.put("lat", latTmp);
+			
 			json.put(jo);
 		}
-		ServletActionContext.getRequest().setAttribute("baiduPath", json);
+		returnGPS = json.toString();
+//		ServletActionContext.getRequest().setAttribute("baiduPath", json);
 		return "getPath";
 	}
 	

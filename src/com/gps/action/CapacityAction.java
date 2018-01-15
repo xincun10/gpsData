@@ -1,10 +1,15 @@
 package com.gps.action;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -14,6 +19,7 @@ import com.gps.utils.xmlConvert;
 import com.opensymphony.xwork2.ActionSupport;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 /**
  * 运力分析模块
  * @author Administrator
@@ -42,12 +48,34 @@ public class CapacityAction extends ActionSupport {
 	public void setVehicleState(String vehicleState) {
 		this.vehicleState = vehicleState;
 	}
+		
+	private String returnCity;
+    //从Action返回json数据给调用的Ajax，毕竟用用Ajax基本上要交互下嘛。
+	public String getReturnCity() {
+		return returnCity;
+	}
+	public void setReturnCity(String returnCity) {
+		this.returnCity = returnCity;
+	}
+	
+	private String returnProvince;
+	public String getReturnProvince() {
+		return returnProvince;
+	}
+	public void setReturnProvince(String returnProvince) {
+		this.returnProvince = returnProvince;
+	}
 	
 	//所有省汇总信息
 	public String provinceCount()
 	{
 		String path = ServletActionContext.getServletContext().getRealPath("/region.xml");
 		ArrayList<String> provs = xmlConvert.getNameProp(path);
+		String ps = ServletActionContext.getRequest().getParameter("ps");
+		JSONObject jsonOne = JSONObject.fromObject(ps);
+		vehicleState = jsonOne.getString("vehicleState");
+		
+		
 		Map<String, String> map = new HashMap<String, String>();
 		List<Vehicle> list = null;
 		JSONArray jsonArray = new JSONArray();
@@ -63,11 +91,33 @@ public class CapacityAction extends ActionSupport {
 				//车辆状态为空
 				list = capacityService.findProvinceCount(prov);
 			}
-			map.put("name", prov);
-			map.put("value", list.size()+"");
-			jsonArray.add((Object)map);
+			if(list.size()!=0)
+			{
+				map.put("name", prov);
+				map.put("value", list.size()+"");
+				jsonArray.add((Object)map);				
+			}
 		}
-		ServletActionContext.getRequest().setAttribute("provinceCount", jsonArray);
+//		ServletActionContext.getRequest().setAttribute("provinceCount", jsonArray);
+//		HttpServletRequest request = ServletActionContext.getRequest();
+//		HttpServletResponse response = ServletActionContext.getResponse();
+//		try {
+//			response.setContentType("text/json; charset=utf-8");
+//			response.setHeader("Cache-Control", "no-cache"); //取消浏览器缓存
+//			PrintWriter out = response.getWriter();
+//			
+//			out.print(jsonArray);
+//			out.flush();
+//			out.close();
+////			response.sendRedirect("index.html");
+////			request.getRequestDispatcher("/index.html").forward(request, response);
+//			return null;
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		returnProvince = jsonArray.toString();
+		
 		return "provinceCount";
 	}
 	
@@ -77,6 +127,14 @@ public class CapacityAction extends ActionSupport {
 		String path = ServletActionContext.getServletContext().getRealPath("/region.xml");
 		//所有数据
 		Map<String, Map<String, ArrayList<String>>> areasMap = xmlConvert.getArea(path);
+		String ds = ServletActionContext.getRequest().getParameter("ds");
+//		JSONArray json = JSONArray.fromObject(ds);
+		JSONObject jsonOne = JSONObject.fromObject(ds);
+		province = jsonOne.getString("province");
+		vehicleState = jsonOne.getString("vehicleState");
+		
+		System.out.println(province);
+		System.out.println(vehicleState);
 		//某省所有市级数据
 		Map<String, ArrayList<String>> citysMap = areasMap.get(province);
 		
@@ -115,12 +173,14 @@ public class CapacityAction extends ActionSupport {
 				areaMap.put("value", areaVal);
 				cityVal += areaVal;
 				areasDataList.add(areaMap);
+				
 			}
 			provVal += cityVal;
 			mapCity.put("name", city);
 			mapCity.put("value", cityVal+"");
 			mapCity.put("area", areasDataList);
 			citysList.add(mapCity);
+			
 		}
 		
 		//将省级数据加入map
@@ -130,8 +190,11 @@ public class CapacityAction extends ActionSupport {
 		//存放省级数据集
 		JSONArray jsonCityArray = JSONArray.fromObject(mapProv);
 		
-		ServletActionContext.getRequest().setAttribute("cityCount", jsonCityArray);
+		returnCity = jsonCityArray.toString();
+		
 		return "cityCount";
 	}
+	
+	
 	
 }
